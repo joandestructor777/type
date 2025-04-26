@@ -477,189 +477,130 @@ tbody th,td{
 }
 
 /* MEDIA QUERIES */
+/* Para pantallas grandes */
 @media (max-width: 1200px) {
   .codeKeys-ancle {
     min-width: 300px;
   }
   .codeKeys-img {
     width: 100%;
-    height: 100%;
-  }
-}
-
-@media (max-width: 768px) {
-  /* Botón de inicio se ajusta */
-  .btn-start {
-    width: 100%;
-    top: -20%;
-  }
-
-  .results-container {
-    width: 100%;
-  }
-
-  /* Ajuste de inputs en el nivel */
-  .level-input {
-    width: 80%;
-  }
-
-  .result {
-    width: 100%;
-  }
-
-  .quote {
-    flex-direction: column;
-  }
-
-  /* Ajuste de tamaño de la fuente en pantallas pequeñas */
-  h1 {
-    font-size: 3rem;
-    top: 40px;
-    right: 0;
-  }
-
-}
-
-@media (max-width: 480px) {
-  /* Header se reorganiza para móviles */
-  header {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  /* Botón de inicio se ajusta para caber en pantallas pequeñas */
-  .btn-start {
-    width: 100%;
-    font-size: 1.5rem;
-    top: 10%;
-  }
-
-  /* Ajustes para las secciones de resultados */
-  .results {
-    flex-direction: column;
-  }
-
-  .level-input {
-    width: 90%;
-  }
-
-  /* Ajustes de padding y altura de secciones */
-  .modal-container {
-    padding: 15px;
-  }
-
-  .modal-container-section {
-    min-height: 250px;
-  }
-
-  /* Ajuste en las imágenes y fuentes */
-  .codeKeys-ancle {
-    min-width: 250px;
-  }
-
-  .codeKeys-img {
-    width: 100%;
     height: auto;
-  }
-
-  /* Títulos de los resultados */
-  .result h2, .result p {
-    font-size: 1.5rem;
+    object-fit: contain;
   }
 }
 
-/* TABLE */
-/* Entre 1179px y 901px */
-@media screen and (max-width: 1179px) {
+/* Ajustes generales para tablets */
+@media (max-width: 971px) {
   .historial table {
-    width: 70%;
+    width: 90dvw;
   }
-
-  .level-input {
-    width: 50%;
-    height: 50px;
-    font-size: 1.5rem;
-  }
-
-  .level h2 {
-    font-size: 1.6rem;
-  }
-
-  .level button {
-    width: 50%;
-    font-size: 1.5rem;
-    padding: 10px;
-  }
-}
-
-/* Pantallas menores a 971px */
-@media screen and (max-width: 971px) {
-  .historial table {
-    width: 90%;
-  }
-
   tbody th, td {
     font-size: 1rem;
     padding: 8px 15px;
   }
-
-  .level-input {
+  .level-input, .level button {
     width: 60%;
     height: 45px;
     font-size: 1.4rem;
   }
-
   .level h2 {
     font-size: 1.4rem;
   }
-
-  .level button {
-    width: 60%;
-    font-size: 1.4rem;
-    padding: 8px;
-  }
 }
 
-/* Pantallas menores a 780px */
-@media screen and (max-width: 780px) {
+/* Tablets más pequeñas */
+@media (max-width: 780px) {
   .level {
-    background-color: #000d; /* más transparente */
+    background-color: #000d;
+    min-height: 100svh; /* Ajuste seguro para teclados móviles */
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
-
-  .level-input {
+  .level-input, .level button {
     width: 65%;
     height: 45px;
     font-size: 1.3rem;
     margin: 10px;
   }
-
   .level h2 {
     font-size: 1.3rem;
-  }
-
-  .level button {
-    width: 65%;
-    font-size: 1.3rem;
-    padding: 8px;
-    margin: 5px;
   }
 }
 
-/* Pantallas menores a 400px */
-@media screen and (max-width: 400px) {
+/* Para móviles medianos */
+@media (max-width: 768px) {
+  .btn-start {
+    width: 100%;
+    top: 0;
+    font-size: 1.8rem;
+  }
+  .results-container {
+    width: 100%;
+  }
   .level-input {
+    width: 80%;
+  }
+  .result {
+    width: 100%;
+  }
+  .quote {
+    flex-direction: column;
+  }
+  h1 {
+    font-size: 2.5rem;
+    top: 40px;
+    right: 0;
+  }
+}
+
+/* Para celulares más pequeños */
+@media (max-width: 480px) {
+  header {
+    flex-direction: column;
+    align-items: center;
+  }
+  .btn-start {
+    width: 90%;
+    font-size: 1.5rem;
+    top: 5%;
+  }
+  .results {
+    flex-direction: column;
+  }
+  .level-input {
+    width: 90%;
+  }
+  .modal-container {
+    padding: 15px;
+  }
+  .modal-container-section {
+    min-height: 250px;
+  }
+  .codeKeys-ancle {
+    min-width: 250px;
+  }
+  .codeKeys-img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+  }
+  .result h2, .result p {
+    font-size: 1.5rem;
+  }
+}
+
+/* Para celulares muy pequeños */
+@media (max-width: 400px) {
+  .level-input, .level button {
     width: 75%;
     height: 40px;
     font-size: 1.2rem;
+    padding: 6px;
   }
-
   .level h2 {
     font-size: 1.2rem;
-  }
-
-  .level button {
-    width: 75%;
-    font-size: 1.2rem;
-    padding: 6px;
   }
 }
