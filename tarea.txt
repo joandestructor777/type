@@ -1,0 +1,4 @@
+✅ Modo oscuro y personalización de colores/fuentes.
+✅ Responsive design (adaptado a móvil y escritorio).
+✅ Backend con Node.js + Express + MongoDB (opcional) para almacenar récords y estadísticas.
+

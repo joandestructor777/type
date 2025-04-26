@@ -1,0 +1,665 @@
+:root{
+  --font-code:'Courier New',Courier,monospace;
+}
+
+*{
+  margin:0;
+  box-sizing:border-box;
+  letter-spacing: 2px;
+  padding: 0;
+}
+
+*:not(button):not(input){
+  user-select: none;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body{
+  width: 100%;
+  height: 100vh;
+  background:#333;
+  position: relative;
+}
+
+/* AREA DE HEADER INICIO*/
+header{
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  position: relative;
+  flex-wrap: wrap; /* Se asegura de que los elementos se acomoden en pantallas más pequeñas */
+}
+
+.codeKeys-ancle{
+  display: inline-block;
+  min-width: 350px;
+  max-width: 450px;
+  height: auto;
+  position: absolute;
+  top: -150px;
+  left: -50px;
+  width: 100%; /* Hace que el contenedor sea más flexible */
+}
+
+.codeKeys-img{
+  width: 100%;
+  height: 100%;
+  filter: drop-shadow(15px 15px 5px #000);
+}
+
+h1{
+  color:#fff;
+  position: absolute;
+  width: 25%;
+  font-family: 'Space Mono';
+  top: 70px;
+  right: 0;
+  animation: light 2.5s linear infinite normal both;
+}
+
+/* AREA DE HEADER FIN */
+
+.modal-container-section {
+  display: block;
+  background-color: #222;
+  width: 100vw;
+  min-height: 400px; 
+  height: auto; 
+  box-shadow: inset 2px 20px 20px rgba(0, 0, 0, 0.3);
+  padding: 20px 30px;
+  transform: translateY(35vh);
+  box-sizing: border-box;
+}
+
+.section > p{
+  color: #f00;
+  font-size: 2rem;
+  letter-spacing: 2px;
+}
+
+.modal-container {
+  background-color: transparent;
+  width: 100%;
+  min-height: 200px;
+  color: #eee;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+h1,p,h2,button,span{
+  font-family: 'Space mono',monospace;
+}
+
+span{
+  font-weight: bold;
+  font-size: 3.5rem;
+}
+
+.cronometro{
+  font-size: 4rem;
+  color: #fff;
+  text-align: center;
+  position: absolute;
+  top: 110px ;
+}
+
+.quote{
+  font-size: 2rem;
+  letter-spacing: 2px;
+  color: inherit;
+  font-family:var(--font-code) ;
+  background-color: transparent;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  text-align: center;
+}
+
+.btn-start{
+  border: none;
+  outline: 6px solid #fff;
+  width: fit-content;  
+  height: fit-content;
+  background: #2f2f2f;
+  text-transform: uppercase;
+  color: #fff;
+  font-family: 'Space Mono',monospace;
+  font-size: 2rem;
+  letter-spacing: 3px;
+  border-radius: 10px;
+  padding: 10px 20px;
+  cursor: pointer;
+  position: absolute;
+  top: -42%;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  transition: .1s ease-in-out;
+}
+
+.btn-start:hover{
+  outline-color:#fff ;
+  color:#555 ;
+  background-color: #aaa;
+}
+
+.input-quote{
+  opacity:0;
+  position: absolute;
+}
+
+/* ESTILOS DE LOS CONTENIDOS DE RESULTADOS   */
+
+.results-container{
+  display: none;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  width: 95%;
+  height: 100vh;
+}
+.results{
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-content: center;
+  gap:  20px;
+}
+
+.result{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 10px;
+  margin-bottom: 10px;
+  gap:25px;
+  height: 100%;
+  animation: border 2.5s ease-in-out infinite alternate both;
+  outline:4px solid transparent;
+  border-radius: 10px;
+  border-top: 3px solid #fff;
+}
+
+.result h2,.result p{
+  font-size: 2rem;
+  color:#fff;
+  text-align: center;
+}
+
+.bcg-restart{
+  position: absolute;
+  display:none;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #000c;
+  z-index: 30;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.restart{
+  position: absolute;
+  top: 0;
+  border-radius: 10px;
+  width: auto;
+  outline: 6px solid #fff;
+  padding: 10px 20px;
+  font-size: 2rem;
+  background-color: transparent;
+  color: #fff;
+  cursor: pointer;
+  animation: subir 2s cubic-bezier(0.075, 0.82, 0.165, 1) .3s 1 normal both, parpadeoOut 2s cubic-bezier(0.075, 0.82, 0.165, 1) .3s infinite normal both;
+  z-index: 30;
+}
+
+/* LEVEL Y BOTONES DE LEVEL */
+.level {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #000d;
+  z-index: 30;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 3rem;
+}
+
+.level-input{
+  width: 30%;
+  top: 100px;
+  height: 50px;
+  font-size: 2rem;
+  background-color: transparent;
+  border: none;
+  margin: auto;
+  border-bottom: 2px solid #fff;
+  outline: none;
+  padding: 10px 20px;
+  margin: 10px;
+  color:#fff;
+  text-align: center;
+}
+
+.level h2{
+  font-size: 3rem;
+  color: #fff;
+  text-align: center;
+}
+.level button{
+  padding: 10px;
+  width: 20%;
+  margin: 20px;
+  border-radius: 10px;
+  font-size: 2.2rem;
+  border: none;
+  font-family: var(--font-code);
+  font-weight: bold;
+  cursor: pointer;
+  color:#fff;
+  outline: 6px solid #fff;
+}
+
+.facil{
+  background-color: #060;
+  transition:background-color .2s ease-in;
+}
+
+.medio{
+  background-color: #c50;
+  transition:background-color .2s ease-in;
+}
+
+.dificil{
+  background-color: #a00;
+  transition:background-color .2s ease-in;
+}
+
+.historial{
+  position: absolute ;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  min-height: 100vh;
+  height: auto;
+  top: 0;
+  left: 0;
+  background-color: #101;
+  z-index: 100;
+  padding: 40px;
+}
+.close-tag{
+  background-color: #600a;
+  padding: 10px 20px;
+  position:fixed;
+  right: 0;
+  top: 0;
+  font-size: 1.2rem;
+  color: #fff;
+  cursor: pointer;
+}
+
+.historial table{
+  width: 70%;
+  background-color: transparent;
+  border-collapse: collapse;
+  border-radius: 10px;
+}
+thead{
+  background-color: rgba(55, 2, 55, 35%);
+  border-radius: 10px 10px 0 0;
+  border: 2px solid rgba(55, 2, 55, 35%);
+}
+th,tr,td{
+  outline: 2px solid transparent;
+  font-family: var(--font-code);
+  border:none;
+  border: 2px solid rgba(55, 2, 55, 100%);
+  color: #fff;
+  font-size: 2rem;
+  padding: 10px 30px;
+}
+
+tbody th,td{
+  font-size: 1.5rem;
+  text-align: center;
+  background-color: rgba(99, 3, 99, 60%);
+}
+
+/* ANIMACIONES DE LA PAGINA WEB__________________________________________ */
+
+@keyframes resultados{
+  0%{
+      transform: translateY(110vh);
+  }
+  100%{
+      transform: translateY(0vh);
+  }
+}
+
+@keyframes textoOpaco{
+  0%{
+      opacity: 100%;
+  }
+  25%{
+      opacity: 75%;
+  }
+  50%{
+      opacity: 50%;
+  }
+  75%{
+      opacity: 25%;
+  }
+  100%{
+      opacity: 0;
+  }
+}
+
+/* ANIMACION DE LOS RESULTADOS */
+@keyframes border {
+  0%{
+      border-color:transparent;
+  }
+  100%{
+      border-color:#ffff ;
+  }
+}
+
+@keyframes parpadeo {
+  0%{
+      opacity:0
+  }
+  100%{
+      opacity:1
+  }
+}
+
+@keyframes containMove {
+  0%{
+      color: rgba(240, 240, 240, 1);
+      top: 120px;
+      left: -200px;
+      right:0;
+      bottom:0;
+  }
+  100%{
+      color: rgba(240, 240, 240, 1);
+      top: 120px;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      margin: auto;
+  }
+}
+
+@keyframes aparecer {
+  0%{
+      height: 40%;
+  }
+  100%{
+      height: 60%;
+  }
+}
+
+@keyframes light {
+  0%{
+      opacity: .1;
+  }
+  15%{
+      opacity: .3;
+  }
+  30%{
+      opacity: .5;
+  }
+  45%{
+      opacity: .7;
+  }
+  60%{
+      opacity: 1;
+  }
+  75%{
+      opacity: .7;
+  }
+  90%{
+      opacity: .5;
+  }
+  100%{
+      opacity: .2;
+  }
+}
+
+/* animacion boton restart */
+@keyframes subir{
+  0%{
+      transform: translateY(110vh);
+  }
+  100%{
+      transform: translateY(20vh);
+  }
+}
+
+@keyframes parpadeoOut {
+  0% {
+      box-shadow: 0 0 25px 5px rgba(255, 255, 255, 0.6);
+  }
+  20% {
+      box-shadow: none;
+  }
+  40% {
+      box-shadow: 0 0 20px 5px rgba(255, 255, 255, 0.6);
+  }
+  60% {
+      box-shadow: none;
+  }
+  80% {
+      box-shadow: 0 0 20px 5px rgba(255, 255, 255, 0.6);
+  }
+  100% {
+      box-shadow: none;
+  }
+}
+
+/* MEDIA QUERIES */
+@media (max-width: 1200px) {
+  .codeKeys-ancle {
+    min-width: 300px;
+  }
+  .codeKeys-img {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  /* Botón de inicio se ajusta */
+  .btn-start {
+    width: 100%;
+    top: -20%;
+  }
+
+  .results-container {
+    width: 100%;
+  }
+
+  /* Ajuste de inputs en el nivel */
+  .level-input {
+    width: 80%;
+  }
+
+  .result {
+    width: 100%;
+  }
+
+  .quote {
+    flex-direction: column;
+  }
+
+  /* Ajuste de tamaño de la fuente en pantallas pequeñas */
+  h1 {
+    font-size: 3rem;
+    top: 40px;
+    right: 0;
+  }
+
+}
+
+@media (max-width: 480px) {
+  /* Header se reorganiza para móviles */
+  header {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  /* Botón de inicio se ajusta para caber en pantallas pequeñas */
+  .btn-start {
+    width: 100%;
+    font-size: 1.5rem;
+    top: 10%;
+  }
+
+  /* Ajustes para las secciones de resultados */
+  .results {
+    flex-direction: column;
+  }
+
+  .level-input {
+    width: 90%;
+  }
+
+  /* Ajustes de padding y altura de secciones */
+  .modal-container {
+    padding: 15px;
+  }
+
+  .modal-container-section {
+    min-height: 250px;
+  }
+
+  /* Ajuste en las imágenes y fuentes */
+  .codeKeys-ancle {
+    min-width: 250px;
+  }
+
+  .codeKeys-img {
+    width: 100%;
+    height: auto;
+  }
+
+  /* Títulos de los resultados */
+  .result h2, .result p {
+    font-size: 1.5rem;
+  }
+}
+
+/* TABLE */
+/* Entre 1179px y 901px */
+@media screen and (max-width: 1179px) {
+  .historial table {
+    width: 70%;
+  }
+
+  .level-input {
+    width: 50%;
+    height: 50px;
+    font-size: 1.5rem;
+  }
+
+  .level h2 {
+    font-size: 1.6rem;
+  }
+
+  .level button {
+    width: 50%;
+    font-size: 1.5rem;
+    padding: 10px;
+  }
+}
+
+/* Pantallas menores a 971px */
+@media screen and (max-width: 971px) {
+  .historial table {
+    width: 90%;
+  }
+
+  tbody th, td {
+    font-size: 1rem;
+    padding: 8px 15px;
+  }
+
+  .level-input {
+    width: 60%;
+    height: 45px;
+    font-size: 1.4rem;
+  }
+
+  .level h2 {
+    font-size: 1.4rem;
+  }
+
+  .level button {
+    width: 60%;
+    font-size: 1.4rem;
+    padding: 8px;
+  }
+}
+
+/* Pantallas menores a 780px */
+@media screen and (max-width: 780px) {
+  .level {
+    background-color: #000d; /* más transparente */
+  }
+
+  .level-input {
+    width: 65%;
+    height: 45px;
+    font-size: 1.3rem;
+    margin: 10px;
+  }
+
+  .level h2 {
+    font-size: 1.3rem;
+  }
+
+  .level button {
+    width: 65%;
+    font-size: 1.3rem;
+    padding: 8px;
+    margin: 5px;
+  }
+}
+
+/* Pantallas menores a 400px */
+@media screen and (max-width: 400px) {
+  .level-input {
+    width: 75%;
+    height: 40px;
+    font-size: 1.2rem;
+  }
+
+  .level h2 {
+    font-size: 1.2rem;
+  }
+
+  .level button {
+    width: 75%;
+    font-size: 1.2rem;
+    padding: 6px;
+  }
+}

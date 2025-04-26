@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    <script src="./script.js" defer></script>
+</head>
+<body>
+    <!-- ETIQUETA DE AUDIO PARA LAS TECLAS PRESIONADAS -->
+    <audio class="boton-sound" src="./sonido3.mp3" preload="auto"></audio>
+    <header>
+        <a href="/index.html" class="codeKeys-ancle">
+            <img  class="codeKeys-img"src="/logo-white.png" alt="logo de code">
+        </a>
+        <h1>Prueba que tan veloz eres con el teclado</h1>
+        <h2 class="cronometro">00:00:00</h2>
+    </header>
+    <section class="level">
+        <h2 class="name-title">Ingresa tu nombre</h2>
+        <input class="level-input" type="text" autofocus>
+        <h2 class="level-title">Selecciona el nivel de dificultad</h2>
+        <button class="facil" tabindex="1">Fácil</button>
+        <button class="medio" tabindex="2">Medio</button>
+        <button class="dificil" tabindex="3">Difícil</button>
+    </section>
+    <button class="btn-start">Comenzar typing</button>
+    <div>
+        <section class="modal-container-section"> 
+            <div class="modal-container">
+                <p class="reload">Presiona Shift + R para reiniciar el juego</p>
+                <p class="quote"></p>
+                <input class="input-quote" type="text">
+                
+            </div>
+        </section>
+        <article class="historial">
+            <span class="close-tag">X</span>
+            <table>
+                <thead>
+                    <tr>
+                        <th colspan="6">Historial de puntuaciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th>Jugador</th>
+                        <th>WPM</th>
+                        <th>Presición</th>
+                        <th>Erróneos</th>
+                        <th>Tiempo</th>
+                        <th>Fecha</th>
+                    </tr>
+                </tbody>
+            </table>
+            
+    
+        </article>
+    </div>
+    <div class="bcg-restart-container">
+        <div class="bcg-restart">
+            <button class="restart">INTENTAR DE NUEVO</button>
+            <div class="results-container">
+                <section class="results">
+                    <div class="result">
+                        <h2>WPM</h2>
+                        <p></p>
+                    </div>
+                    <div class="result">
+                        <h2>Presición</h2>
+                        <p></p>
+                    </div>
+                    <div class="result">
+                        <h2>Erróneos</h2>
+                        <p></p>
+                    </div>
+                    <div class="result">
+                        <h2>Tiempo total</h2>
+                        <p></p>
+                    </div>
+                </section>
+            </div>
+        </div>    
+    </div>
+</body>
+</html>
